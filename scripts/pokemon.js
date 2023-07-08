@@ -1,38 +1,44 @@
-const $containerCharacters = document.querySelector(".container-characters");
+const $containerCharacters = document.getElementById("container-characters");
 let url = "https://pokeapi.co/api/v2/pokemon";
-let countPokemon = 8;
 
 async function loadCharacters(url) {
-  try {
-    let res = await fetch(url);
-    let json = await res.json();
-    let $template = "";
+    try {
+        let res = await fetch(url);
+        let json = await res.json();
+        let $template = "";
+        //console.log(res);
+        //console.log(json);  
 
-    
-    //console.log(res);
-    //console.log(json);
-   
- 
 
-    if (!res.ok) throw { status: res.status, statusText: res.statusText };
-    for (let i = 0; i < json.results.length; i++) {
-       
-    url_image = json['sprites']['other']['official-artwork']['front_default']
-    console.log(url_image)
-    
-    $template += `
-        <div class="card-container" >
+        if (!res.ok) throw { status: res.status, statusText: res.statusText };
+        for (let i = 0; i < json.results.length; i++) {
+            url_name = (json.results[i].name);
+            let url_pokemon = (json.results[i].url);
+            let resPok = await fetch(url_pokemon);
+            let jsonPok = await resPok.json();
+            console.log(url_pokemon)
+            
+            let buyCards = document.createElement('div');
+            buyCards.className = 'buyCards';
+            $template += `
+        <div class="buyCards" >
             </div>
-            <div class="card-details">
-            <img class = "imgPoke" src = "${json.sprites.other["official-artwork"].front_default}">
-            </div> 
-          </div>
-        `;
-      //$containerCharacters.innerHTML=$template;
+            <div class="CardsDetails">
+                <p>${json.results[i].name}</p>
+                <i class="fa-sharp fa-regular fa-heart"></i>
+            </div>
+                <img class = "imgPokemon" src = "${jsonPok.sprites.front_default}">
+            <div class="CardsDetails">
+                <p><b>${jsonPok.base_experience} Exp</b></p>
+                <button class="buybutton">Buy</button>
+            </div>
+            
+        </div>`;
+            $containerCharacters.innerHTML = $template;
+        }
+    } catch (err) {
+        console.log(err);
     }
-  } catch (err) {
-    console.log(err);
-  }
 }
 
 loadCharacters(url);
