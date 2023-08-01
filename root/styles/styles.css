@@ -3,6 +3,12 @@
     margin: 0;
     padding: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
+
+
+
+}
+a {
+    text-decoration: none;
 }
 
 header {
@@ -19,6 +25,7 @@ header {
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
+    text-decoration-line: none;
 
 } 
 button{
@@ -34,12 +41,20 @@ button{
     
 
 }
+a {
+    color: black;
+}
+
+
 
 ul {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    color: white
+    color: white;
+    text-decoration: none
+
+    
     
     
 }
@@ -48,12 +63,14 @@ ul {
 }
 li {
     list-style: none;
+    text-decoration: none;
 }
 main {
     display: flex;
     flex-direction: row;
     margin: 50px;
     gap: 40px;
+    font: Plus Jakarta Sans;
 }
 
 section {

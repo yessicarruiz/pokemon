@@ -37,16 +37,18 @@
     
 
         <main>
-            <section>
+            <section class="cualquiera">
                 <h1>Checkout Out Pokemon Cards</h1>
                 <p class="texto">The Pokemon Go expansion for the Pokemon Trading Card Game will release soon. </p>
         
                 <ul class="filter">
-                    <li> <a href="#" class="types">All</a></li>
-                    <li> <a href="#" class="types">Fire</a></li>
-                    <li> <a href="#" class="types">Poison</a></li>
-                    <li> <a href="#" class="types">Water</a></li>
+                    <li> <a onclick="typesButton('all')">All</a></li>
+                    <li> <a onclick= "typesButton('fire')" class="types">Fire</a></li>
+                    <li> <a onclick= "typesButton('poison')"class="types">Poison</a></li>
+                    <li> <a onclick= "typesButton('water')"class="types">Water</a></li>
                 </ul>
+            </section>
+            <section>
                 <div id="container-characters"></div>
                 <div class="showCards">
                     <button class="button">Show more cards</button>
@@ -55,15 +57,12 @@
             </section>
             
         </main>
-       
         
 
- 
-    <img id="logopokemon"
-    src="root/assets/logopokemon.jpg" alt="logoprincipal">
-    <p>Our vision is to provide convenience and help increase your sales business.</p>
-    
-    
+    <div>
+        <img id="footer"
+        src="root/assets/Footer.png">
+    </div>
 
 </body>
 <script src="scripts/pokemon.js"></script>
